@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, CardMedia, CardTitle, CardText, CardActions } from 'react-toolbox/lib/card';
+
+import { Card, CardActions } from 'react-toolbox/lib/card';
 import { Button } from 'react-toolbox/lib/button';
 import Input from 'react-toolbox/lib/input';
-
+import Avatar from 'react-toolbox/lib/avatar';
 
 class Enigma extends React.Component {
   constructor() {
@@ -23,15 +24,17 @@ class Enigma extends React.Component {
   //  TODO: Take first letter of name to populate icon
   render() {
     return (
-      <Card style={{ width: '350px'}}>
-        Tovia's Enigma
-        <Input
-          type="text"
-          label="Name"
-          required
-          onChange={this.handleChange.bind(this, 'hint')}
-          icon={<span>S</span>}
-        />
+      <Card style={{ width: '350px' }}>
+        Tovias Enigma
+        <div>
+          <Input
+            type="text"
+            label="Name"
+            required
+            onChange={this.handleChange.bind(this, 'hint')}
+            icon={<Avatar icon={<span>S</span>} />}
+          />
+        </div>
         <Input
           type="text"
           multiline
