@@ -15,6 +15,7 @@ const minimumDate = new Date(todaysDate.setDate(todaysDate.getDate() - 1));
 //  TODO: Take passphrase component out
 //  TODO: Take card styles out
 //  TODO: Fix chevron icons of DatePicker
+//  TODO: Take out console.logs()
 
 class Enigma extends React.Component {
   constructor() {
@@ -27,7 +28,7 @@ class Enigma extends React.Component {
       passphrase: '',
     };
 
-    this.handlePassphrase = this.handlePassphrase.bind(this)
+    this.handlePassphrase = this.handlePassphrase.bind(this);
   }
 
   handleChange(type, val) {
@@ -35,13 +36,11 @@ class Enigma extends React.Component {
   }
 
   handlePassphrase(passphrase) {
-    console.log('passphrase:Enigma.js ', passphrase);
+    // console.log('passphrase:Enigma.js ', passphrase);
     this.setState({ passphrase });
   }
 
   render() {
-    // const minimumDate = Date.now();
-
 
     return (
       <div>

@@ -32,6 +32,7 @@
     "babel-preset-env": "^1.5.2",
     "babel-preset-react": "^6.24.1",
     "compression": "1.6.2",
+    "copy-to-clipboard": "^3.0.6",
     "css-loader": "^0.28.4",
     "ejs": "^2.5.6",
     "eslint-plugin-react": "^7.1.0",

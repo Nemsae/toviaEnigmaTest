@@ -1,7 +1,15 @@
 import React from 'react';
 import generatePassword from 'password-generator';
+import copy from 'copy-to-clipboard';
+
+import Tooltip from 'react-toolbox/lib/tooltip';
+import Link from 'react-toolbox/lib/link';
+
+const TooltipLink = Tooltip(Link);
 
 //  TODO: decrease font size
+//  BUG: on some passphrases when copying, first leter is lower case for some unkown reason
+//     label property automatically capitalizes first letter
 class Passphrase extends React.Component {
   constructor() {
     super();
@@ -10,9 +18,9 @@ class Passphrase extends React.Component {
       passphrase: '',
     };
 
-    // this.createNewPassphrase = this.createNewPassphrase.bind(this)
+    this.createNewPassphrase = this.createNewPassphrase.bind(this);
+    this.copyToClipboard = this.copyToClipboard.bind(this);
   }
-
   componentWillMount() {
     this.createNewPassphrase();
   }
@@ -22,7 +30,7 @@ class Passphrase extends React.Component {
       e.preventDefault();
     }
     const passphrase = generatePassword(5, false);
-    this.props.handlePassphrase(passphrase)
+    this.props.handlePassphrase(passphrase);
     this.setState({ passphrase });
   }
 
@@ -30,15 +38,28 @@ class Passphrase extends React.Component {
     this.setState({ ...this.state, [name]: value });
   }
 
+  copyToClipboard(e) {
+    const { passphrase } = this.state;
+    e.preventDefault();
+
+    console.log('passphrase: ', passphrase);
+
+    copy(passphrase);
+  }
+
   render() {
-    console.log('this.props: ', this.props);
+    const { passphrase } = this.state;
 
     return (
       <div style={{ textAlign: 'center', margin: '20px 0px 20px 0px' }}>
-        Your Passphrase - <a href="" style={{ textDecoration: 'none' }}>{this.state.passphrase}</a>
+        {/* Your Passphrase - <a href="" style={{ textDecoration: 'none', color: 'blue' }} onClick={this.copyToClipboard}>{passphrase}</a> */}
+        <div style= {{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+          Your Passphrase -
+          <TooltipLink href="#" style={{ textDecoration: 'none', color: 'blue', marginLeft: '.5em' }} label={passphrase} tooltip='Click to copy to clipboard' onClick={this.copyToClipboard} />
+        </div>
         <br />
         <br />
-        <a href="" style={{ textDecoration: 'none' }} onClick={this.createNewPassphrase.bind(this)}>
+        <a href="" style={{ textDecoration: 'none', color: 'blue' }} onClick={this.createNewPassphrase}>
           Generate new Passphrase
         </a>
       </div>
