@@ -22,6 +22,7 @@ class Passphrase extends React.Component {
       e.preventDefault();
     }
     const passphrase = generatePassword(5, false);
+    this.props.handlePassphrase(passphrase)
     this.setState({ passphrase });
   }
 
@@ -30,6 +31,8 @@ class Passphrase extends React.Component {
   }
 
   render() {
+    console.log('this.props: ', this.props);
+
     return (
       <div style={{ textAlign: 'center', margin: '20px 0px 20px 0px' }}>
         Your Passphrase - <a href="" style={{ textDecoration: 'none' }}>{this.state.passphrase}</a>

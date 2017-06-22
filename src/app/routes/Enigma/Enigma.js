@@ -24,11 +24,19 @@ class Enigma extends React.Component {
       name: '',
       message: '',
       date: '',
+      passphrase: '',
     };
+
+    this.handlePassphrase = this.handlePassphrase.bind(this)
   }
 
-  handleChange(name, value) {
-    this.setState({ ...this.state, [name]: value });
+  handleChange(type, val) {
+    this.setState({ [type]: val });
+  }
+
+  handlePassphrase(passphrase) {
+    console.log('passphrase:Enigma.js ', passphrase);
+    this.setState({ passphrase });
   }
 
   render() {
@@ -61,6 +69,7 @@ class Enigma extends React.Component {
             label="Expiration date"
             minDate={minimumDate}
             onChange={this.handleChange.bind(this, 'date')}
+            required
             value={this.state.date}
             sundayFirstDayOfWeek
           />
@@ -69,7 +78,7 @@ class Enigma extends React.Component {
             <Button label="DECRYPT" />
           </CardActions>
         </Card>
-        <Passphrase />
+        <Passphrase handlePassphrase={this.handlePassphrase} />
       </div>
     );
   }
