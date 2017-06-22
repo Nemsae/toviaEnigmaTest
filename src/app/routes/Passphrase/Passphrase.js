@@ -32,10 +32,10 @@ class Passphrase extends React.Component {
   render() {
     return (
       <div style={{ textAlign: 'center', margin: '20px 0px 20px 0px' }}>
-        Your Passphrase - <a href="">{this.state.passphrase}</a>
+        Your Passphrase - <a href="" style={{ textDecoration: 'none' }}>{this.state.passphrase}</a>
         <br />
         <br />
-        <a href="" onClick={this.createNewPassphrase.bind(this)}>
+        <a href="" style={{ textDecoration: 'none' }} onClick={this.createNewPassphrase.bind(this)}>
           Generate new Passphrase
         </a>
       </div>
