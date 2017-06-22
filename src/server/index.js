@@ -27,4 +27,6 @@ app.use(morgan(isProduction ? 'combined' : 'dev'));
 app.use(express.static(path.resolve(__dirname, '../build')));
 app.use(renderMiddleware);
 
+// app.use('/api', require('./routes/api'));
+
 app.listen(port, console.log(`Server running on port ${port}`));

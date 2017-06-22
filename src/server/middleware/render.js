@@ -26,7 +26,7 @@ function render(req, res) {
         <head>
           <meta charset="utf-8" />
           <meta content="width=device-width, initial-scale=1" name="viewport" />
-          <title>React Starter</title>
+          <title>Tovia's Enigma</title>
           <link href="${CSS_BUNDLE}" rel="stylesheet">
         </head>
         <body>
