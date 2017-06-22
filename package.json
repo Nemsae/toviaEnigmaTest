@@ -25,6 +25,7 @@
   "dependencies": {
     "assets-webpack-plugin": "3.5.1",
     "autoprefixer-core": "^6.0.1",
+    "axios": "^0.16.2",
     "babel-cli": "^6.24.1",
     "babel-loader": "^7.1.0",
     "babel-plugin-transform-object-rest-spread": "6.23.0",

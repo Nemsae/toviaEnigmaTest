@@ -9,6 +9,8 @@ import DatePicker from 'react-toolbox/lib/date_picker';
 import Passphrase from '../Passphrase';
 import EncryptionModal from '../EncryptionModal';
 
+import APIactions from '../../actions/APIactions.js';
+
 const todaysDate = new Date(Date.now());
 const minimumDate = new Date(todaysDate.setDate(todaysDate.getDate() - 1));
 
@@ -17,6 +19,7 @@ const minimumDate = new Date(todaysDate.setDate(todaysDate.getDate() - 1));
 //  TODO: Take card styles out
 //  TODO: Fix chevron icons of DatePicker
 //  TODO: Take out console.logs()
+//  TODO: Validate that inputs are filled before encrypting!
 
 class Enigma extends React.Component {
   constructor() {
@@ -39,7 +42,6 @@ class Enigma extends React.Component {
   }
 
   handlePassphrase(passphrase) {
-    // console.log('passphrase:Enigma.js ', passphrase);
     this.setState({ passphrase });
   }
 
@@ -47,8 +49,20 @@ class Enigma extends React.Component {
     const id = e.target.id;
     if (id === 'encrypt') {
       console.log('ENCRYPT ME!');
+      this.sendEncrpytionRequest()
     }
     this.setState({ dialogActive: !this.state.dialogActive });
+  }
+
+  sendEncrpytionRequest() {
+    const encryptionPackage = {
+      sender: this.state.name,
+      message: this.state.message,
+      expirationDate: this.state.date,
+      key: this.state.passphrase,
+    };
+
+    APIactions.encryptMessage(encryptionPackage);
   }
 
   render() {
