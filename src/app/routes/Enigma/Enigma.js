@@ -15,6 +15,11 @@ const todaysDate = new Date(Date.now());
 const minimumDate = new Date(todaysDate.setDate(todaysDate.getDate() - 1));
 console.log('minimumDate: ', minimumDate);
 
+//  TODO: Take first letter of name to populate icon
+//  TODO: Take passphrase component out
+//  TODO: Take card styles out
+//  TODO: Fix chevron icons of DatePicker
+
 class Enigma extends React.Component {
   constructor() {
     super();
@@ -30,9 +35,6 @@ class Enigma extends React.Component {
     this.setState({ ...this.state, [name]: value });
   }
 
-  //  TODO: Take first letter of name to populate icon
-  //  TODO: Take passphrase component out
-  //  TODO: Take card styles out
   render() {
     // const minimumDate = Date.now();
 
@@ -46,7 +48,7 @@ class Enigma extends React.Component {
           value={this.state.name}
           required
           onChange={this.handleChange.bind(this, 'name')}
-          icon={<Avatar icon={<span>S</span>} />}
+          icon={<Avatar icon={<span>{this.state.name[0]}</span>} />}
         />
         <Input
           type="text"
@@ -61,7 +63,7 @@ class Enigma extends React.Component {
         <DatePicker
           label="Expiration date"
           minDate={minimumDate}
-          onChange={this.handleChange.bind(this, 'date2')}
+          onChange={this.handleChange.bind(this, 'date')}
           value={this.state.date}
           sundayFirstDayOfWeek
         />

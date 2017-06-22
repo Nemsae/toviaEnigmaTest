@@ -17,7 +17,7 @@ function Navigation() {
             Enigma
           </NavLink>
         </li>
-        <li className={style.item}>
+        {/* <li className={style.item}>
           <NavLink
             className={style.link}
             activeClassName={style.activeLink}
@@ -26,7 +26,7 @@ function Navigation() {
           >
             Home
           </NavLink>
-        </li>
+        </li> */}
       </ul>
     </nav>
   );
