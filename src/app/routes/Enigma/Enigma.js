@@ -22,9 +22,11 @@ class Enigma extends React.Component {
   }
 
   //  TODO: Take first letter of name to populate icon
+  //  TODO: Take passphrase component out
+  //  TODO: Take card styles out
   render() {
     return (
-      <Card style={{ width: '350px' }}>
+      <Card style={{ width: '350px', padding: '0px 15px 0px 15px' }}>
         Tovias Enigma
         <div>
           <Input
@@ -38,16 +40,16 @@ class Enigma extends React.Component {
         <Input
           type="text"
           multiline
-          label="Message *"
+          label="Message"
+          required
           maxLength={120}
           value={this.state.multiline}
           onChange={this.handleChange.bind(this, 'multiline')}
         />
         <Input
-          type="date"
+          type="text"
           value={this.state.hint}
-          label="Expiration Date *"
-          hint="With Hint"
+          label="Expiration Date"
           required
           onChange={this.handleChange.bind(this, 'hint')}
         />
