@@ -11,9 +11,8 @@ class Enigma extends React.Component {
 
     this.state = {
       name: '',
-      phone: '',
-      email: '',
-      hint: '',
+      message: '',
+      date: '',
     };
   }
 
@@ -32,26 +31,28 @@ class Enigma extends React.Component {
           <Input
             type="text"
             label="Name"
+            value={this.state.name}
             required
-            onChange={this.handleChange.bind(this, 'hint')}
+            onChange={this.handleChange.bind(this, 'name')}
             icon={<Avatar icon={<span>S</span>} />}
           />
         </div>
         <Input
           type="text"
-          multiline
           label="Message"
+          value={this.state.message}
+          multiline
           required
           maxLength={120}
-          value={this.state.multiline}
-          onChange={this.handleChange.bind(this, 'multiline')}
+          value={this.state.message}
+          onChange={this.handleChange.bind(this, 'message')}
         />
         <Input
           type="text"
-          value={this.state.hint}
+          value={this.state.date}
           label="Expiration Date"
           required
-          onChange={this.handleChange.bind(this, 'hint')}
+          onChange={this.handleChange.bind(this, 'date')}
         />
         <CardActions>
           <Button label="ENCRYPT" />
