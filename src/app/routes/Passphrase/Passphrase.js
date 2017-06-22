@@ -7,12 +7,22 @@ class Passphrase extends React.Component {
     super();
 
     this.state = {
+      passphrase: '',
     };
+
+    // this.createNewPassphrase = this.createNewPassphrase.bind(this)
   }
 
   componentWillMount() {
-    const x = generatePassword();
-    console.log('x: ', x);
+    this.createNewPassphrase();
+  }
+
+  createNewPassphrase(e) {
+    if (e !== undefined) {
+      e.preventDefault();
+    }
+    const passphrase = generatePassword(5, false);
+    this.setState({ passphrase });
   }
 
   handleChange(name, value) {
@@ -22,10 +32,12 @@ class Passphrase extends React.Component {
   render() {
     return (
       <div style={{ textAlign: 'center', margin: '20px 0px 20px 0px' }}>
-        Your Passphrase - <a href=''>XYZUH</a>
-        <br/>
-        <br/>
-        <a href="">Generate new Passphrase</a>
+        Your Passphrase - <a href="">{this.state.passphrase}</a>
+        <br />
+        <br />
+        <a href="" onClick={this.createNewPassphrase.bind(this)}>
+          Generate new Passphrase
+        </a>
       </div>
     );
   }
