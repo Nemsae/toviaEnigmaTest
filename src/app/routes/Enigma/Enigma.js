@@ -4,6 +4,16 @@ import { Card, CardActions } from 'react-toolbox/lib/card';
 import { Button } from 'react-toolbox/lib/button';
 import Input from 'react-toolbox/lib/input';
 import Avatar from 'react-toolbox/lib/avatar';
+import DatePicker from 'react-toolbox/lib/date_picker';
+
+// const datetime = new Date(2015, 10, 16);
+// console.log('datetime: ', datetime);
+// const minimumDate = new Date(new Date(datetime).setDate(8));
+// console.log('minimumDate: ', minimumDate);
+
+const todaysDate = new Date(Date.now());
+const minimumDate = new Date(todaysDate.setDate(todaysDate.getDate() - 1));
+console.log('minimumDate: ', minimumDate);
 
 class Enigma extends React.Component {
   constructor() {
@@ -24,19 +34,20 @@ class Enigma extends React.Component {
   //  TODO: Take passphrase component out
   //  TODO: Take card styles out
   render() {
+    // const minimumDate = Date.now();
+
+
     return (
       <Card style={{ width: '350px', padding: '0px 15px 0px 15px' }}>
         Tovias Enigma
-        <div>
-          <Input
-            type="text"
-            label="Name"
-            value={this.state.name}
-            required
-            onChange={this.handleChange.bind(this, 'name')}
-            icon={<Avatar icon={<span>S</span>} />}
-          />
-        </div>
+        <Input
+          type="text"
+          label="Name"
+          value={this.state.name}
+          required
+          onChange={this.handleChange.bind(this, 'name')}
+          icon={<Avatar icon={<span>S</span>} />}
+        />
         <Input
           type="text"
           label="Message"
@@ -47,12 +58,12 @@ class Enigma extends React.Component {
           value={this.state.message}
           onChange={this.handleChange.bind(this, 'message')}
         />
-        <Input
-          type="text"
+        <DatePicker
+          label="Expiration date"
+          minDate={minimumDate}
+          onChange={this.handleChange.bind(this, 'date2')}
           value={this.state.date}
-          label="Expiration Date"
-          required
-          onChange={this.handleChange.bind(this, 'date')}
+          sundayFirstDayOfWeek
         />
         <CardActions>
           <Button label="ENCRYPT" />
