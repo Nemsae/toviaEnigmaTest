@@ -1,35 +1,45 @@
 import React from 'react';
 import Dialog from 'react-toolbox/lib/dialog';
+import Input from 'react-toolbox/lib/input';
 
+//  TODO: Prop validation
 class EncryptionModal extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      // passphrase: '',
     };
     // this.createNewPassphrase = this.createNewPassphrase.bind(this);
-    // this.copyToClipboard = this.copyToClipboard.bind(this);
   }
 
   render() {
     const { active, handleToggle } = this.props;
-    console.log('active:EncryptionModal ', active);
     const actions = [
-      { label: 'Cancel', onClick: handleToggle },
-      { label: 'Save', onClick: handleToggle },
+      { label: 'CLOSE', onClick: handleToggle },
+      { label: 'DECRYPT', onClick: handleToggle },
     ];
+    //  TODO: DECRYPT
+    //      1. grab value in Message
+    //      2. send action to backend with Date.now(), along with CipherText
+    //      3. if date is later than expiration date, send message back that the message has either expired or is an invalid encrypted message
     return (
       <div>
-        {/* <Button label="Show my dialog" onClick={handleToggle} /> */}
         <Dialog
           actions={actions}
           active={active}
           onEscKeyDown={handleToggle}
           onOverlayClick={handleToggle}
-          title="My awesome dialog"
+          title="De/Encrypt"
         >
-          <p>Here you can add arbitrary content. Components like Pickers are using dialogs now.</p>
+          <Input
+            type="text"
+            label="Message"
+            value={this.state.message}
+            multiline
+            required
+            value={this.state.message}
+            // onChange={this.handleChange.bind(this, 'message')}
+          />
         </Dialog>
       </div>
     );

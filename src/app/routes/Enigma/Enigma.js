@@ -43,8 +43,11 @@ class Enigma extends React.Component {
     this.setState({ passphrase });
   }
 
-  handleToggle() {
-    console.log('Sanity:TOGGLE');
+  handleToggle(e) {
+    const id = e.target.id;
+    if (id === 'encrypt') {
+      console.log('ENCRYPT ME!');
+    }
     this.setState({ dialogActive: !this.state.dialogActive });
   }
 
@@ -80,8 +83,8 @@ class Enigma extends React.Component {
             sundayFirstDayOfWeek
           />
           <CardActions>
-            <Button label="ENCRYPT" onClick={this.handleToggle} />
-            <Button label="DECRYPT" onClick={this.handleToggle} />
+            <Button label="ENCRYPT" id="encrypt" onClick={this.handleToggle} />
+            <Button label="DECRYPT" id="decrypt" onClick={this.handleToggle} />
           </CardActions>
         </Card>
         <EncryptionModal handleToggle={this.handleToggle} active={this.state.dialogActive} />
