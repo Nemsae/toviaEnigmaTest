@@ -5,6 +5,45 @@
   "engines": {
     "node": ">=4"
   },
+  "reactToolbox": {
+    "include": [
+      "AUTOCOMPLETE",
+      "AVATAR",
+      "BUTTON",
+      "CARD",
+      "CHECKBOX",
+      "CHIP",
+      "DATE_PICKER",
+      "DIALOG",
+      "DRAWER",
+      "DROPDOWN",
+      "INPUT",
+      "LAYOUT",
+      "LINK",
+      "LIST",
+      "MENU",
+      "NAVIGATION",
+      "OVERLAY",
+      "PROGRESS_BAR",
+      "RADIO",
+      "RIPPLE",
+      "SLIDER",
+      "SNACKBAR",
+      "SWITCH",
+      "TABLE",
+      "TABS",
+      "TIME_PICKER",
+      "TOOLTIP"
+    ],
+    "customProperties": {
+      "animation-duration": "0.3s",
+      "color-accent": "var(--palette-pink-a200)",
+      "color-accent-dark": "var(--palette-pink-700)",
+      "color-primary-contrast": "var(--color-dark-contrast)",
+      "color-accent-contrast": "var(--color-dark-contrast)"
+    },
+    "output": "build/assets/react-toolbox"
+  },
   "scripts": {
     "analyze": "webpack --config webpack/webpack.client.babel.js --profile --json > stats.json",
     "build": "npm run build:client && npm run build:server",
@@ -13,14 +52,16 @@
     "dev": "npm run build:server && node build/server",
     "lint": "eslint --ignore-path .gitignore .",
     "prebuild": "rimraf build/*",
-    "start": "node build/server"
+    "start": "node build/server",
+    "toolbox": "react-toolbox-themr"
   },
   "devDependencies": {
     "eslint": "^4.0.0",
     "eslint-config-airbnb": "^15.0.1",
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
-    "eslint-plugin-react": "6.10.0"
+    "eslint-plugin-react": "6.10.0",
+    "react-toolbox-themr": "^1.0.2"
   },
   "dependencies": {
     "assets-webpack-plugin": "3.5.1",

@@ -2,8 +2,10 @@ import React from 'react';
 import generatePassword from 'password-generator';
 import copy from 'copy-to-clipboard';
 
-import Tooltip from 'react-toolbox/lib/tooltip';
-import Link from 'react-toolbox/lib/link';
+// import Tooltip from 'react-toolbox/lib/tooltip';
+// import Link from 'react-toolbox/lib/link';
+import Tooltip from 'react-toolbox/lib/tooltip/Tooltip';
+import Link from 'react-toolbox/lib/link/Link';
 
 const TooltipLink = Tooltip(Link);
 

@@ -1,15 +1,20 @@
 import React from 'react';
 
 import { Card, CardActions } from 'react-toolbox/lib/card';
-import { Button } from 'react-toolbox/lib/button';
-import Input from 'react-toolbox/lib/input';
-import Avatar from 'react-toolbox/lib/avatar';
-import DatePicker from 'react-toolbox/lib/date_picker';
+// import { Button } from 'react-toolbox/lib/button';
+// import Input from 'react-toolbox/lib/input';
+// import Avatar from 'react-toolbox/lib/avatar';
+// import DatePicker from 'react-toolbox/lib/date_picker';
+
+import Button from 'react-toolbox/lib/button/Button';
+import Input from 'react-toolbox/lib/input/Input';
+import Avatar from 'react-toolbox/lib/avatar/Avatar';
+import DatePicker from 'react-toolbox/lib/date_picker/DatePicker';
 
 import Passphrase from '../Passphrase';
 import EncryptionModal from '../EncryptionModal';
 
-import APIactions from '../../actions/APIactions.js';
+import APIactions from '../../actions/APIactions';
 
 const todaysDate = new Date(Date.now());
 const minimumDate = new Date(todaysDate.setDate(todaysDate.getDate() - 1));
@@ -49,7 +54,7 @@ class Enigma extends React.Component {
     const id = e.target.id;
     if (id === 'encrypt') {
       console.log('ENCRYPT ME!');
-      this.sendEncrpytionRequest()
+      this.sendEncrpytionRequest();
     }
     this.setState({ dialogActive: !this.state.dialogActive });
   }
