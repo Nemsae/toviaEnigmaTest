@@ -7,6 +7,7 @@ import Avatar from 'react-toolbox/lib/avatar';
 import DatePicker from 'react-toolbox/lib/date_picker';
 
 import Passphrase from '../Passphrase';
+import EncryptionModal from '../EncryptionModal';
 
 const todaysDate = new Date(Date.now());
 const minimumDate = new Date(todaysDate.setDate(todaysDate.getDate() - 1));
@@ -26,9 +27,11 @@ class Enigma extends React.Component {
       message: '',
       date: '',
       passphrase: '',
+      dialogActive: false,
     };
 
     this.handlePassphrase = this.handlePassphrase.bind(this);
+    this.handleToggle = this.handleToggle.bind(this);
   }
 
   handleChange(type, val) {
@@ -40,8 +43,12 @@ class Enigma extends React.Component {
     this.setState({ passphrase });
   }
 
-  render() {
+  handleToggle() {
+    console.log('Sanity:TOGGLE');
+    this.setState({ dialogActive: !this.state.dialogActive });
+  }
 
+  render() {
     return (
       <div>
         <Card style={{ width: '350px', padding: '15px 15px 0px 15px' }}>
@@ -73,10 +80,11 @@ class Enigma extends React.Component {
             sundayFirstDayOfWeek
           />
           <CardActions>
-            <Button label="ENCRYPT" />
-            <Button label="DECRYPT" />
+            <Button label="ENCRYPT" onClick={this.handleToggle} />
+            <Button label="DECRYPT" onClick={this.handleToggle} />
           </CardActions>
         </Card>
+        <EncryptionModal handleToggle={this.handleToggle} active={this.state.dialogActive} />
         <Passphrase handlePassphrase={this.handlePassphrase} />
       </div>
     );
