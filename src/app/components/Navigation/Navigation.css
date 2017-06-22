@@ -1,0 +1,19 @@
+.list {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.item {
+  display: inline;
+  padding: 14px;
+}
+
+.link {
+  display: inline-block;
+}
+
+.activeLink {
+  font-weight: bold;
+}

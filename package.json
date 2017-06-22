@@ -1,0 +1,57 @@
+{
+  "name": "tovia-enigma",
+  "version": "0.0.0",
+  "private": true,
+  "engines": {
+    "node": ">=4"
+  },
+  "scripts": {
+    "analyze": "webpack --config webpack/webpack.client.babel.js --profile --json > stats.json",
+    "build": "npm run build:client && npm run build:server",
+    "build:client": "webpack --progress --config webpack/webpack.client.babel.js",
+    "build:server": "webpack --progress --config webpack/webpack.server.babel.js",
+    "dev": "npm run build:server && node build/server",
+    "lint": "eslint --ignore-path .gitignore .",
+    "prebuild": "rimraf build/*",
+    "start": "node build/server"
+  },
+  "devDependencies": {
+    "eslint": "^4.0.0",
+    "eslint-config-airbnb": "^15.0.1",
+    "eslint-plugin-import": "^2.3.0",
+    "eslint-plugin-jsx-a11y": "^5.0.3",
+    "eslint-plugin-react": "6.10.0"
+  },
+  "dependencies": {
+    "assets-webpack-plugin": "3.5.1",
+    "autoprefixer-core": "^6.0.1",
+    "babel-cli": "^6.24.1",
+    "babel-loader": "^7.1.0",
+    "babel-plugin-transform-object-rest-spread": "6.23.0",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.6",
+    "babel-preset-env": "^1.5.2",
+    "babel-preset-react": "^6.24.1",
+    "compression": "1.6.2",
+    "css-loader": "^0.28.4",
+    "ejs": "^2.5.6",
+    "eslint-plugin-react": "^7.1.0",
+    "express": "^4.15.3",
+    "extract-text-webpack-plugin": "^2.1.2",
+    "file-loader": "^0.11.2",
+    "morgan": "^1.8.2",
+    "postcss-cssnext": "^2.11.0",
+    "postcss-loader": "^2.0.6",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-router-dom": "^4.1.1",
+    "react-to-html-webpack-plugin": "^2.2.0",
+    "react-toolbox": "^2.0.0-beta.12",
+    "rimraf": "2.6.1",
+    "url-loader": "^0.5.9",
+    "webpack": "^3.0.0",
+    "webpack-dev-middleware": "^1.10.2",
+    "webpack-hot-middleware": "^2.18.0",
+    "webpack-md5-hash": "0.0.5",
+    "webpack-node-externals": "^1.6.0"
+  }
+}
